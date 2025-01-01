@@ -2,8 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {"vercel-build": "npm run prepare && next build",
+  "scripts": {
+    "vercel-build": "npm run prepare && next build",
     "start": "node app.js"
+  },
+  "engines": {
+    "node": "22.12.0"
   },
   "keywords": [],
   "author": "",
