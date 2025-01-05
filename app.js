@@ -26,8 +26,9 @@ connectDB();
 
 // Middleware
 app.use(cors({
-    origin: "http://localhost:3000",
-})); 
+    origin: ["http://localhost:3000", "https://firebrick-wallaby-613530.hostingersite.com"],
+}));
+
 app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
