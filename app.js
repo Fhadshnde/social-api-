@@ -39,6 +39,6 @@ app.use("/api/categories", categoriesRouter);
 // Serve static files for uploaded images
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.listen(process.env.PORT ||8000, () => {
+app.listen(process.env.PORT ||8001, () => {
     console.log("Server is running on port 8000");
 });
