@@ -21,12 +21,13 @@ const connectDB = async () => {
         process.exit(1); 
     }
 };
+console.log("MongoDB URL:", process.env.MONGO_URL);
 
 connectDB();
 
 // Middleware
 app.use(cors({
-    origin: ["http://localhost:3000", "social-client-fahad.ddnsfree.com"],
+    origin: ["http://localhost:3000", "https://magnificent-lokum-d53f11.netlify.app/"],
 }));
 
 app.use(express.json());
@@ -40,5 +41,15 @@ app.use("/api/categories", categoriesRouter);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.listen(process.env.PORT ||8001, () => {
-    console.log("Server is running on port 8000");
+    console.log("Server is running on port 8001");
 });
+
+
+
+
+
+
+
+
+
+

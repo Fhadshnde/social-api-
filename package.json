@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "vercel-build": "npm run prepare && next build",
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "engines": {
     "node": "22.12.0"
