@@ -7,49 +7,60 @@ const usersRouter = require('./routes/usersRoute');
 const postsRouter = require("./routes/postsRoute");
 const commentsRouter = require("./routes/commentsRoute");
 const categoriesRouter = require("./routes/categoriesRoute");
-const path = require('path');
 
 const app = express();
 
 // Connect to MongoDB
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URL);
+        if (!process.env.MONGO_URL) {
+            throw new Error("MongoDB URL is not defined in .env");
+        }
+        await mongoose.connect(process.env.MONGO_URL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
         console.log("Connected to MongoDB");
     } catch (error) {
-        console.error("Failed to connect to MongoDB", error);
-        process.exit(1); 
+        console.error("Failed to connect to MongoDB:", error.message);
+        process.exit(1); // Stop the app if DB connection fails
     }
 };
-console.log("MongoDB URL:", process.env.MONGO_URL);
 
-connectDB();
+// Ensure the environment variables are loaded
+if (!process.env.PORT || !process.env.MONGO_URL) {
+    console.error("Missing necessary environment variables. Please check your .env file.");
+    process.exit(1); // Stop the app if essential environment variables are missing
+}
 
 // Middleware
 app.use(cors({
     origin: ["http://localhost:3000", "https://magnificent-lokum-d53f11.netlify.app/"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use(express.json());
+
+// Routes
 app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/posts", postsRouter);
-app.use("/api/comments", commentsRouter); 
-app.use("/api/categories", categoriesRouter); 
+app.use("/api/comments", commentsRouter);
+app.use("/api/categories", categoriesRouter);
 
-// Serve static files for uploaded images
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-app.listen(process.env.PORT ||8001, () => {
-    console.log("Server is running on port 8001");
+// Global error handler for uncaught errors
+app.use((err, req, res, next) => {
+    console.error("Unexpected error:", err.message);
+    res.status(500).json({ message: "Something went wrong on the server." });
 });
 
+// Start the server after connecting to DB
+const startServer = async () => {
+    await connectDB();
+    app.listen(process.env.PORT || 8001, () => {
+        console.log(`Server is running on port ${process.env.PORT || 8001}`);
+    });
+};
 
-
-
-
-
-
-
-
-
+startServer();
