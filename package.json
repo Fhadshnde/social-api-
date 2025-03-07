@@ -7,7 +7,7 @@
   },
   "scripts": {
     "vercel-build": "npm run prepare && next build",
-    "prepare": "npm run build", // أضف هذا السطر إذا كان مطلوبًا
+    "prepare": "npm run build", 
     "start": "nodemon app.js"
   },
   "keywords": [],
