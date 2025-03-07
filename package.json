@@ -2,13 +2,13 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
-  "engines": "22.x",
-  "scripts": {
-    "vercel-build": "npm run prepare && next build",
-    "start": "nodemon app.js"
-  },
   "engines": {
     "node": "22.12.0"
+  },
+  "scripts": {
+    "vercel-build": "npm run prepare && next build",
+    "prepare": "npm run build", // أضف هذا السطر إذا كان مطلوبًا
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
