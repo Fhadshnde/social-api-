@@ -6,9 +6,8 @@
     "node": "22.12.0"
   },
   "scripts": {
-    "vercel-build": "npm run prepare && next build",
-    "prepare": "npm run build",
-    "build": "echo 'Building the project...'",
+    "vercel-build": "npm run build",
+    "build": "echo 'Building the project...'", 
     "start": "nodemon app.js"
   },
   "keywords": [],
