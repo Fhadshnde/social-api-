@@ -16,10 +16,7 @@ const connectDB = async () => {
         if (!process.env.MONGO_URL) {
             throw new Error("MongoDB URL is not defined in .env");
         }
-        await mongoose.connect(process.env.MONGO_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect(process.env.MONGO_URL);
         console.log("Connected to MongoDB");
     } catch (error) {
         console.error("Failed to connect to MongoDB:", error.message);
@@ -59,8 +56,11 @@ app.use((err, req, res, next) => {
 const startServer = async () => {
     await connectDB();
     app.listen(process.env.PORT || 8001, () => {
-        console.log(`Server is running on port ${process.env.PORT || 8001}`)
+        console.log(`Server is running on port ${process.env.PORT || 8001}`);
     });
 };
 
 startServer();
+
+// تأكد من تصدير التطبيق
+module.exports = app;
