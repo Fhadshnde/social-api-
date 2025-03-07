@@ -32,7 +32,7 @@ if (!process.env.PORT || !process.env.MONGO_URL) {
 
 // Middleware
 app.use(cors({
-    origin: ["http://localhost:3000", "https://magnificent-lokum-d53f11.netlify.app/"],
+    origin: ["http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
