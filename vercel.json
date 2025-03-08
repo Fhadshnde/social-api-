@@ -2,14 +2,15 @@
     "version": 2,
     "builds": [
       {
-        "src": "./app.js",
+        "src": "app.js",  // تأكد من أن هذا هو مسار الملف الرئيسي لتطبيقك
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "app.js"
+        "dest": "/app.js"  // تأكد من أن هذا هو المسار الصحيح للملف
       }
     ]
   }
+  
