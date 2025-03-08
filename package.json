@@ -7,7 +7,7 @@
   },
   "scripts": {
     "vercel-build": "npm run build",
-    "build": "echo 'Building the project...'", 
+    "build": "echo 'Building the project...'",
     "start": "nodemon app.js"
   },
   "keywords": [],

@@ -31,24 +31,24 @@ if (!process.env.PORT || !process.env.MONGO_URL) {
 }
 
 // Middleware
-const corsOptions = {
-    origin: (origin, callback) => {
-        const allowedOrigins = [
-            "http://localhost:3000",
-            "https://magnificent-lokum-d53f11.netlify.app",
-            "https://social-api-sr3k.vercel.app"
-        ];
-        if (allowedOrigins.includes(origin) || !origin) {
-            callback(null, true); // السماح بالطلب
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-};
+// const corsOptions = {
+//     origin: (origin, callback) => {
+//         const allowedOrigins = [
+//             "http://localhost:3000",
+//             "https://magnificent-lokum-d53f11.netlify.app",
+//             "https://social-api-sr3k.vercel.app"
+//         ];
+//         if (allowedOrigins.includes(origin) || !origin) {
+//             callback(null, true); // السماح بالطلب
+//         } else {
+//             callback(new Error("Not allowed by CORS"));
+//         }
+//     },
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization"]
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Routes
 app.use("/api/auth", authRouter);
