@@ -7,39 +7,7 @@
   },
   "scripts": {
     "vercel-build": "npm run build",
-    "build": "echo 'Building the project...'", // يمكنك تعديل هذا السكربت ليشمل إجراءات البناء الفعلية
-    "start": "nodemon app.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "axios": "^1.7.9",
-    "bcryptjs": "^2.4.3",
-    "cloudinary": "^2.5.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "express-async-handler": "^1.2.0",
-    "joi": "^17.13.3",
-    "joi-password-complexity": "^5.2.0",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.9.3",
-    "multer": "^1.4.5-lts.1",
-    "nodemon": "^3.1.7"
-  }
-}
-{
-  "name": "backend",
-  "version": "1.0.0",
-  "main": "index.js",
-  "engines": {
-    "node": "22.12.0"
-  },
-  "scripts": {
-    "vercel-build": "npm run build",
-    "build": "echo 'Building the project...'", // يمكنك تعديل هذا السكربت ليشمل إجراءات البناء الفعلية
+    "build": "echo 'Building the project...'", 
     "start": "nodemon app.js"
   },
   "keywords": [],
